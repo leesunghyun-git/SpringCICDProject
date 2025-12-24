@@ -73,9 +73,13 @@ public class SeoulRestController {
     		map.put("table_name", tables[type]);
     		map.put("no", no);
     		SeoulVO vo=sService.seoulDetailData(map);
+    		String[] datas=vo.getAddress().split(" ");
+    		// 03189 서울 종로구 종로 54 (관철동, 보신각)
+    		List<FoodVO> list=sService.foodNearData4(datas[2]);
     		// => 주변 맛집 
     		map=new HashMap();
     		map.put("vo", vo);
+    		map.put("list", list);
     	}catch(Exception ex)
     	{
     		return new ResponseEntity<>(null,HttpStatus.INTERNAL_SERVER_ERROR);
