@@ -12,7 +12,7 @@ import lombok.RequiredArgsConstructor;
 @RequiredArgsConstructor
 public class BusanServiceImpl implements BusanService{
    private final BusanMapper mapper;
-
+   private final FoodMapper fMapper;
    @Override
    public List<BusanVO> busanListData(Map map) {
 	// TODO Auto-generated method stub
@@ -23,6 +23,19 @@ public class BusanServiceImpl implements BusanService{
    public int busanTotalPage(Map map) {
 	// TODO Auto-generated method stub
 	return mapper.busanTotalPage(map);
+   }
+
+   @Override
+   public BusanVO busanDetailData(int no) {
+	// TODO Auto-generated method stub
+	mapper.busanHitIncrement(no);
+	return mapper.busanDetailData(no);
+   }
+
+   @Override
+   public List<FoodVO> foodNearData4(String address) {
+	// TODO Auto-generated method stub
+	return fMapper.foodNearData4(address);
    }
    
 }

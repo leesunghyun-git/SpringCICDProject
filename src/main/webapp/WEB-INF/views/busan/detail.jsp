@@ -14,7 +14,7 @@
                     <div class="breadcrumb__text">
                         <h2>상세보기</h2>
                         <div class="breadcrumb__option">
-                           <span>서울</span>
+                           <span>부산</span>
                         </div>
                     </div>
                 </div>
@@ -107,10 +107,10 @@
     		 const store=useSeoulStore()
     		 const params=new URLSearchParams(location.search)
     		 const no=params.get('no')
-    		 const type=params.get('type')
+    		 
     		 
     		 Vue.onMounted(()=>{
-    			 store.seoulDetailData(no,type)
+    			 store.seoulDetailData(no,1)
     		 })
     		 
     		 return {
