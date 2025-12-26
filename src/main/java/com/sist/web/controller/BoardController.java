@@ -31,4 +31,10 @@ public class BoardController {
 	   model.addAttribute("main_jsp", "../board/delete.jsp");
 	   return "main/main";
    }
+   @GetMapping("/board/update")
+   public String board_update(Model model)
+   {
+	   model.addAttribute("main_jsp", "../board/update.jsp");
+	   return "main/main";
+   }
 }
