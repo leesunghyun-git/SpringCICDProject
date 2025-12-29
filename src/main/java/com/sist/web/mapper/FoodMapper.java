@@ -54,9 +54,9 @@ public interface FoodMapper {
 	public void foodHitIncrement(int fno);
 	
 	@Select("SELECT fno,name,poster,address,phone,type,"
-		    +"time,parking,score,theme, content "
+		    +"time,parking,score,theme, content,price "
 			+"FROM menupan_food "
 		    +"WHERE fno=#{fno}")
 	public FoodVO foodDetailData(int fno);
-	
+
 }

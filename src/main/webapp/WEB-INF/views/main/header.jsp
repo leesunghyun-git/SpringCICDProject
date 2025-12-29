@@ -1,10 +1,17 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="jakarta.tags.core" %>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<script>
+window._LOGIN_={
+	sessionId:'<%=session.getAttribute("id")!=null?session.getAttribute("id"):"" %>',
+	name:'<%=session.getAttribute("name")!=null?session.getAttribute("name"):"" %>'
+}
+</script>
 </head>
 <body>
 <!-- Header Section Begin -->
@@ -30,7 +37,12 @@
                             </div>
                             
                             <div class="header__top__right__auth">
-                                <a href="#"><i class="fa fa-user"></i> Login</a>
+                            	<c:if test="${sessionScope.id==null}">
+                                <a href="/member/login"><i class="fa fa-user"></i> Login</a>
+                                </c:if>
+                                <c:if test="${sessionScope.id!=null}">
+                                <a href="/member/logout"><i class="fa fa-user"></i> Logout</a>
+                                </c:if>
                             </div>
                         </div>
                     </div>
@@ -41,13 +53,13 @@
             <div class="row">
                 <div class="col-lg-3">
                     <div class="header__logo">
-                        <a href="/main"><img src="/img/logo.png" alt=""></a>
+                        <a href="/"><img src="/img/logo.png" alt=""></a>
                     </div>
                 </div>
                 <div class="col-lg-9">
                     <nav class="header__menu">
                         <ul>
-                            <li class="active"><a href="/main">Home</a></li>
+                            <li class="active"><a href="/">Home</a></li>
                             <li><a href="#">회원</a>
                                 <ul class="header__menu__dropdown">
                                     <li><a href="./shop-details.html">회원가입</a></li>
