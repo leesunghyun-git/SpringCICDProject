@@ -60,8 +60,8 @@ jobs:
             docker-compose pull
             docker-compose down
             docker-compose up -d
-            docker stop spring-app || true
-            docker rm spring-app || true
-            docker pull ${{ secrets.DOCKERHUB_USERNAME }}/spring-cicd:latest
-            docker run -d --name spring-app -p 9090:9090 ${{ secrets.DOCKERHUB_USERNAME }}/spring-cicd:latest
+          #  docker stop spring-app || true
+          #  docker rm spring-app || true
+          #  docker pull ${{ secrets.DOCKERHUB_USERNAME }}/spring-cicd:latest
+          #  docker run -d --name spring-app -p 9090:9090 ${{ secrets.DOCKERHUB_USERNAME }}/spring-cicd:latest
           EOF
