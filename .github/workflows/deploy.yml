@@ -53,15 +53,18 @@ jobs:
       # 2. 삭제 docker rm image명
       # 3. dockerhub에서 읽기 pull 
       # 4. 실행명령 : run 
+      #
+      
       - name: Deploy on server using DockerHub image
         run: |
           ssh ubuntu@13.124.203.45 << 'EOF'
             cd /home/ubuntu/app
-            docker-compose pull
-            docker-compose down
-            docker-compose up -d
-          #  docker stop spring-app || true
-          #  docker rm spring-app || true
-          #  docker pull ${{ secrets.DOCKERHUB_USERNAME }}/spring-cicd:latest
-          #  docker run -d --name spring-app -p 9090:9090 ${{ secrets.DOCKERHUB_USERNAME }}/spring-cicd:latest
+            sudo docker-compose pull
+            sudo docker-compose down
+            sudo docker-compose up -d
           EOF
+
+#          docker stop spring-app || true
+#           docker rm spring-app || true
+#           docker pull ${{ secrets.DOCKERHUB_USERNAME }}/spring-cicd:latest
+#           docker run -d --name spring-app -p 9090:9090 ${{ secrets.DOCKERHUB_USERNAME }}/spring-cicd:latest
