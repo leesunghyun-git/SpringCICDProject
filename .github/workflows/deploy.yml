@@ -56,6 +56,10 @@ jobs:
       - name: Deploy on server using DockerHub image
         run: |
           ssh ubuntu@13.124.203.45 << 'EOF'
+            cd /home/ubuntu/app
+            docker-compose pull
+            docker-compose down
+            docker-compose up -d
             docker stop spring-app || true
             docker rm spring-app || true
             docker pull ${{ secrets.DOCKERHUB_USERNAME }}/spring-cicd:latest
