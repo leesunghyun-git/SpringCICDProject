@@ -5,6 +5,6 @@ WORKDIR /app
 # 빌드된 jar 파일 복사 
 COPY build/libs/SpringCICDProject-0.0.1-SNAPSHOT.war app.war
 # PORT 열기 
-EXPOSE 8080
+EXPOSE 9090
 # 실행 
 ENTRYPOINT ["java","-jar","app.war"]
